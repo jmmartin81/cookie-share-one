@@ -21,23 +21,24 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-var allowedOrigins = ['https://7c04-181-117-166-245.sa.ngrok.io',//3001
-                      'https://fc70-181-117-166-245.sa.ngrok.io'];//3002;
-app.use(cors({
-  exposedHeaders: ['Content-Length', 'X-Foo', 'X-Bar'],
-  credentials: true,
-  origin: function(origin, callback){
-    // allow requests with no origin 
-    // (like mobile apps or curl requests)
-    if(!origin) return callback(null, true);
-    if(allowedOrigins.indexOf(origin) === -1){
-      var msg = 'The CORS policy for this site does not ' +
-                'allow access from the specified Origin.';
-      return callback(new Error(msg), false);
-    }
-    return callback(null, true);
-  }
-}));
+var allowedOrigins = ['https://aa52-2803-9800-909f-80fc-71aa-e3e7-c5c2-33ed.sa.ngrok.io',//3001
+                      'https://fe4e-2803-9800-909f-80fc-71aa-e3e7-c5c2-33ed.sa.ngrok.io'];//3002;
+// app.use(cors({
+//   exposedHeaders: ['Content-Length', 'X-Foo', 'X-Bar'],
+//   //credentials: true,
+//  // origin: 
+//   // function(origin, callback){
+//   //   // allow requests with no origin 
+//   //   // (like mobile apps or curl requests)
+//   //   if(!origin) return callback(null, true);
+//   //   if(allowedOrigins.indexOf(origin) === -1){
+//   //     var msg = 'The CORS policy for this site does not ' +
+//   //               'allow access from the specified Origin.';
+//   //     return callback(new Error(msg), false);
+//   //   }
+//   //   return callback(null, true);
+//   // }
+// }));
 
 
 
@@ -60,5 +61,22 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.use(cors({
+  origin:allowedOrigins,
+  credentials: true,
+ // origin: 
+  // function(origin, callback){
+  //   // allow requests with no origin 
+  //   // (like mobile apps or curl requests)
+  //   if(!origin) return callback(null, true);
+  //   if(allowedOrigins.indexOf(origin) === -1){
+  //     var msg = 'The CORS policy for this site does not ' +
+  //               'allow access from the specified Origin.';
+  //     return callback(new Error(msg), false);
+  //   }
+  //   return callback(null, true);
+  // }
+}));
 
 module.exports = app;
