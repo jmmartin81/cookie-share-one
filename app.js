@@ -21,8 +21,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-var allowedOrigins = ['https://34fb-2803-9800-909f-80fc-71aa-e3e7-c5c2-33ed.sa.ngrok.io',
-                      'https://5fd2-2803-9800-909f-80fc-71aa-e3e7-c5c2-33ed.sa.ngrok.io'];
+var allowedOrigins = ['https://7c04-181-117-166-245.sa.ngrok.io',//3001
+                      'https://fc70-181-117-166-245.sa.ngrok.io'];//3002;
 app.use(cors({
   exposedHeaders: ['Content-Length', 'X-Foo', 'X-Bar'],
   credentials: true,
@@ -39,9 +39,11 @@ app.use(cors({
   }
 }));
 
+
+
 app.use('/', indexRouter);
-app.use('/sendCookies', sendCookieRouter);
-app.use('/createCookies', createCookieRouter);
+//app.use('/sendCookies', sendCookieRouter);
+//app.use('/createCookies', createCookieRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
