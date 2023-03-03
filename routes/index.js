@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 router.get('/createCookie', function(req, res, next) {
   console.log('aca en create')
   res.set('Access-Control-Allow-Credentials', 'true');
-  res.set('Access-Control-Allow-Origin', 'https://8dd5-2803-9800-909f-80fc-69f8-103c-d1d-9dd1.sa.ngrok.io');
+  res.set('Access-Control-Allow-Origin', 'https://5e66-181-117-166-245.sa.ngrok.io');
   res.cookie('multidomainCookie', 'valueCookie',{sameSite:'None',secure:true}) //,secure:true
   res.end();
 });
