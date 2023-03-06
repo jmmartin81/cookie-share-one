@@ -1,19 +1,17 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-var indexRouter = require('./routes/index');
+const indexRouter = require('./routes/index');
 
-var cors = require('cors');
-var app = express();
+const cors = require('cors');
+const app = express();
 app.use(cors({
-  origin:['https://5e4a-181-117-166-245.sa.ngrok.io','https://5e66-181-117-166-245.sa.ngrok.io']  ,// callback expects two parameters: error and options,
-  credentials: true, // Permitir el intercambio de cookies
-  // exposedHeaders: ['Content-Length', 'Authorization', 'X-Powered-By'], // Cabeceras expuestas en la respuesta
-  // methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos en la solicitud
-  // allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'] // Cabeceras permitidas en la solicitud
+  //app1 and app2
+  origin:['https://8697-2803-9800-909f-80fc-dcf9-acb5-6acb-3c25.sa.ngrok.io','https://1349-2803-9800-909f-80fc-dcf9-acb5-6acb-3c25.sa.ngrok.io'],
+  credentials: true, // allow share cookies
 }));
 
 // Configuración de cabeceras "Forwarded" y "X-Forwarded-For"
